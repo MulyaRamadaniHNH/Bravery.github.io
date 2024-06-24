@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100..900&family=Lemon&family=Outfit:wght@100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Tienne:wght@400;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    font-family: 'Lemon', sans-serif;
+    background-color: #f4f4f4;
+}
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    width: 100%;
+    height: 150px;
+    background-image: linear-gradient(to right, rgb(153, 26, 26), rgba(255,0,0), rgba(255,255,255));
+}
+.wrapper.sticky {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 75px;
+    z-index: 1000;
+    transition: all .1s ease-out;
+}
+.w-color {
+    width: 100%;
+    height: 150px;
+}
+.mo-prop {
+    position: fixed;
+    top: 150px;
+    left: 590px;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* membuat box berada di paling atas layer */
+    width: 0;
+    height: 0;
+    overflow: hide;
+    transition: all .2s ease-out;
+}
+.move-prop:target {
+    bottom: 1000px;
+    top: 150px;
+    left: 590px;
+    width: 170px;
+    height: 50px;
+    transition: all .2s ease-in;
+}
+.logo {
+    width: 230px;
+    height: 51px;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+.wrapper.sticky .logo {
+    width: 230px;
+    height: 51px;
+}
+.box-prop a {
+    display: block;
+    color: #fcfcfc;
+    text-decoration: none; 
+    padding: 10px 25px;
+}
+.box-prop .move-prop {
+    display: none;
+    position: absolute;
+    background-image: linear-gradient(to right, rgb(153, 26, 26), rgba(255,0,0), rgba(255,255,255));
+    min-width: 100px;
+    box-shadow: 2px 2px 5px rgb(20, 20, 20);
+    transform: scale(1);
+    transition: all .3s ease-out;
+}
+.box-prop:hover .move-prop {
+    display: block;
+}
+.box-prop:hover .ikon {
+    background-image: linear-gradient(to right, rgb(41, 37, 37), rgb(31, 28, 28), rgb(110, 98, 98));
+    border-radius: 50px;
+    transform: scale(1.1);
+    transition: all .3s ease-in-out;
+}
+.box-prop a:hover{
+    background-image: linear-gradient(to right, rgb(41, 37, 37), rgb(31, 28, 28), rgb(110, 98, 98));
+    transform: scale(1.1);
+    transition: all .3s ease-in;
+}
+.ikon {
+    width: 50px;
+    height: 50px;
+    margin-left: 40px;
+    margin-top: 4px;
+    cursor: pointer;
+    transition: width 0.3s ease, height 0.3s ease;
+    transform: scale(1);
+}
+.wrapper.sticky .ikon {
+    width: 50px;
+    height: 50px;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 27.5px;
+}
+.menu > a {
+    text-decoration: none;
+    color: white;
+    padding: 0px 27.5px;
+}
+.menu > a:hover {
+    color: greenyellow;
+    transition: all .2s ease-in-out;
+}
+.move-search {
+    padding-right: 40px;
+}
+.search-box {
+    width: 360px;
+    height: 50px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    background-color: #e9ecef;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+button img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin-top: 4px;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+button {
+    background: transparent;
+    border: 0;
+    outline: 0;
+}
+.search-box input {
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+.result-box {
+    background-color: #ffffff;
+    position: fixed;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #8f4141;
+    font-family: "Outfit", sans-serif;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+.result-box ul {
+    border-top: 1px solid #ffffff;
+    border-radius: 10px;
+}
+.result-box ul li {
+    list-style: none;
+    border-radius: 100px;
+    padding: 15px 10px;
+    cursor: pointer;
+}
+.result-box ul li:hover {
+    background: #e9f3;
+}
+input[type="checkbox"]{
+    position: relative;
+    width: 112px;
+    height: 50px;
+    border-radius: 50px;
+    appearance: none;
+    background-color: #413e3e;
+    outline: none;
+    transition: .5s ease;
+    cursor: pointer;
+}
+input[type="checkbox"]:checked{
+    background-color: #3641db;
+}
+input[type="checkbox"]::before{
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    background-color: #f4f4f4;
+    border-radius: 50px;
+    top: 3px;
+    left: 4px;
+    transition: all .5s ease;
+}
+input[type="checkbox"]:checked::before{
+    transform: translateX(59px);
+}
+.dark {
+    background-color: #333333;
+    color: #fcfcfc;
+}
+.img {
+    width: 1426px;
+    height: 1918px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 80px;
+}
+.box {
+    width: 1426px;
+    height: 1918px;
+    background-image: url(Media.svg);
+    margin: 75px 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+.title {
+    font-family: "Outfit", sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.title-1 {
+    font-family: "Public Sans", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.m-pr {
+    margin: 51px 120px;
+    display: flex;
+    flex-direction: column;
+}
+.st {
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.pr-1 {
+    font-family: 'Tienne', sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.s-st {
+    font-family: 'Outfit', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.s-s-st {
+    font-family: 'Outfit', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.pr-2 {
+    font-family: 'Tienne', sans-serif;
+    font-size: 16px;
+}
+.row {
+    width: 1042px;
+    height: 1px;
+    color: white;
+}
+.space-m {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 580px;
+}
+.meta-1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.container-f {
+    width: 100%;
+    height: 450px;
+    background-image: linear-gradient(to right, rgba(153, 26, 26, 0.500), rgba(255,0,0, 0.250), rgba(255,255,255, 0));
+}
+.wrapper-f {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 450px;
+}
+.wrapper-fg1 {
+    margin: 0px 150px;
+}
+.wrapper-fg2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper-fg2 > a {
+    text-decoration: none;
+    color: inherit;
+}
+.wrapper-fg3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.wrapper-fg3 > a {
+    text-decoration: none;
+    color: inherit;
+}
+.wrapper-fg4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+}
+.wrapper-fg4 > a {
+    text-decoration: none;
+    color: inherit;
+}
+.donasi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    background-color: #6e6262;
+    transform: scale(1);
+    transition: all .3s ease-out;
+    margin-top: 50px;
+}
+.donasi:hover {
+    transform: scale(1.2);
+    transition: all .3s ease-in;
+    background-color: rgb(27, 196, 27);
+}
+.copyright{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Encode Sans', sans-serif;
+    font-size: 18px;
+    width: 500px;
+    height: 50px;   
+    margin-top: 50px;
+}
+.wrapper-fg5 {
+    margin: 0px 123px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 24px;
+}
+.wrapper-fg5 > a {
+    text-decoration: none;
+    color: inherit;
+}
+.logo-f {
+    width: 345px;
+    height: 76px;
+    margin-bottom: 50px;
+}
+.sosmed {
+    width: 80px;
+    height: 80px;
+    margin: 5px;
+}
+.t-box-f {
+    position: absolute;
+    width: 400px;
+    height: 75px;
+    background-color: rgba(238, 255, 0, .7);
+    border-radius: 30px;
+    left: 1378px;
+}
+.box-f {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    height: 75px;
+    background-color: #6e6262;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 15px 0px;
+    border-radius: 30px;
+    padding: 0px 30px;
+    transition: all .4 ease-in-out;
+}
+.box-f:hover {
+    background-color: rgba(238, 255, 0, .7);
+}
+.box-img {
+    width: 50px;
+    height: 50px;
+}
